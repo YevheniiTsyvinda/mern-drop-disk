@@ -1,0 +1,5 @@
+{
+    "serverPort": 5000,
+    "dbUrl": "mongodb://127.0.0.1:27017/drop-box",
+    "jwtSecretKey": "fgdgpgFsert4534seg}3565f"
+}
