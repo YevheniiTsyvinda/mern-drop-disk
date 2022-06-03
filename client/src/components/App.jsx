@@ -1,23 +1,28 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Context } from "..";
 import Navbar from "./navbar/Navbar";
-import { BrowserRouter,Routes,Route } from "react-router-dom"
+import { Routes, Route } from "react-router-dom"
 import Registration from "./registration/Registration";
+import Login from "./registration/Login";
+import Home from "./home/Home";
 
 
 
 function App() {
-  const { store } = useContext(Context);
+  const {store} = useContext(Context);
+  useEffect(()=>{
+     store.auth();
+  },[])
 
   return (
-    <BrowserRouter>
-      <div className="App">
-        <Navbar />
-        <Routes>
-          <Route path="/registration" element={Registration} />
-        </Routes>
-      </div>
-    </BrowserRouter>
+    <div className="App">
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/registration" element={<Registration />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
+    </div>
   );
 }
 
